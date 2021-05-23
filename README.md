@@ -31,6 +31,3 @@ Usuario Admin: nombre_usuario: Admin
 
 Usuario NoAdmin: nombre_usuario: NoAdmin
                  contraseña: 1234
-
-
-### URL DEL SITIO
