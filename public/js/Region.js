@@ -24,7 +24,7 @@ const EditarCiudadbt = document.getElementById("EditarCiudadbt");
 
 async function ObtenerRegiones() {
     const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-    const Regiones = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region",{
+    const Regiones = await fetch("http://localhost:3000/api/region",{
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ async function ObtenerRegiones() {
 
 async function ObtenerPaises() {
     const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-    const Paises = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region/pais", {
+    const Paises = await fetch("http://localhost:3000/api/region/pais", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ async function ObtenerPaises() {
 
 async function ObtenerCiudades() {
     const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-    const Paises = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region/pais/ciudad", {
+    const Paises = await fetch("http://localhost:3000/api/region/pais/ciudad", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ async function EliminarRegion(id) {
         deleteRegionbt.addEventListener('click', async () => {
             console.log(id.target.id);
             const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-            const EliminarRegion = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region?id=" + `${id.target.id}`, {
+            const EliminarRegion = await fetch("http://localhost:3000/api/region?id=" + `${id.target.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -174,7 +174,7 @@ async function EliminarPais(id) {
         DeletePaisbt.addEventListener('click', async () => {
             console.log(id.target.id);
             const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-            const EliminarPais = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region/pais?id=" + `${id.target.id}`, {
+            const EliminarPais = await fetch("http://localhost:3000/api/region/pais?id=" + `${id.target.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -199,7 +199,7 @@ async function EliminarCiudad(id) {
         DeleteCiudadbt.addEventListener('click', async () => {
             console.log(id.target.id);
             const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-            const EliminarCiudad = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region/pais/ciudad?id=" + `${id.target.id}`, {
+            const EliminarCiudad = await fetch("http://localhost:3000/api/region/pais/ciudad?id=" + `${id.target.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -225,7 +225,7 @@ AgregarRegionbtn.addEventListener("click", async (e) => {
     let data = {
         "nombre_region": NombreRegion
     }
-    const CrearRegion = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region", {
+    const CrearRegion = await fetch("http://localhost:3000/api/region", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -253,7 +253,7 @@ AgregarPaisbt.addEventListener("click", AgregarPais)
         "region_id": SelectRegion.value,
         "nombre_pais": NombrePais
     }
-    const CrearPais = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region/pais", {
+    const CrearPais = await fetch("http://localhost:3000/api/region/pais", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -276,7 +276,7 @@ const SelectRegion2 = document.getElementById('SelectRegion2');
 
 async function Region() {
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const ObtenerRegion = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region", {
+  const ObtenerRegion = await fetch("http://localhost:3000/api/region", {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -303,7 +303,7 @@ seleccionaRegion.addEventListener('change', Pais)
 async function Pais() {
   seleccionarciudad.disabled = false;
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const ObtenerPaises = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region/pais/region_pais?id=" + `${seleccionaRegion.value}`, {
+  const ObtenerPaises = await fetch("http://localhost:3000/api/region/pais/region_pais?id=" + `${seleccionaRegion.value}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -333,7 +333,7 @@ async function AgregarCiudad(){
         "pais_id": Selectpais.value,
         "nombre_ciudad": NombreCiudad
     }
-    const CrearCiudad = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region/pais/ciudad", {
+    const CrearCiudad = await fetch("http://localhost:3000/api/region/pais/ciudad", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -365,7 +365,7 @@ function IdParaAtualizar(id2) {
             "nombre_region": NuevoNombreRegion,
         }
 
-        const EditarRegion = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region?id=" + `${id2.target.id}`, {
+        const EditarRegion = await fetch("http://localhost:3000/api/region?id=" + `${id2.target.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -401,7 +401,7 @@ function IdParaAtualizarPais(id) {
             "nombre_pais": NuevoNombrePais
         }
 
-        const EditarRegion = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region/pais?id=" + `${id.target.id}`, {
+        const EditarRegion = await fetch("http://localhost:3000/api/region/pais?id=" + `${id.target.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -438,7 +438,7 @@ function IdParaAtualizarCiudad(id) {
             "nombre_ciudad": NuevoNombreCiudad
         }
 
-        const EditarCiudad = await fetch("http://bym0wzvwbuoywkb3pl49-mysql.services.clever-cloud.com:3306/api/region/pais/ciudad?id=" + `${id.target.id}`, {
+        const EditarCiudad = await fetch("http://localhost:3000/api/region/pais/ciudad?id=" + `${id.target.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
