@@ -12,7 +12,7 @@ modalusuarios.addEventListener('click', Usuarios)
 async function Usuarios(e) {
 
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const mostrarUsuarios = await fetch("http://localhost:3000/api/usuarios", {
+  const mostrarUsuarios = await fetch("/api/usuarios", {
       method: 'GET',
       headers: {
           'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ async function EliminarUsuario(id) {
     eliminarusuario.addEventListener('click', async () => {
           console.log(id.target.id);
           const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-          const EliminarU = await fetch("http://localhost:3000/api/usuarios?id=" + `${id.target.id}`, {
+          const EliminarU = await fetch("/api/usuarios?id=" + `${id.target.id}`, {
               method: 'DELETE',
               headers: {
                   'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ BotonUsuario.addEventListener('click', CrearUsuario)
     }
 
     
-    const crearusuario = await fetch("http://localhost:3000/api/registrar", {
+    const crearusuario = await fetch("/api/registrar", {
       method:'POST', 
       headers: {
         'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ BotonUsuario.addEventListener('click', CrearUsuario)
              "perfil": ActualizarPerfil,
          }
   
-         const ActualizarUsuarios = await fetch("http://localhost:3000/api/usuarios?id=" + `${id2.target.id}`, {
+         const ActualizarUsuarios = await fetch("/api/usuarios?id=" + `${id2.target.id}`, {
              method: 'PUT',
              headers: {
                  'Content-Type': 'application/json',
