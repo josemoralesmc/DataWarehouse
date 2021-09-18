@@ -32,7 +32,7 @@ async function Ingresar(e) {
     console.log(response);
      if (response.ok) {
         localStorage.setItem("Token", JSON.stringify(res));
-       window.location.href = "body.html";
+       window.location.href = "index.html";
         
     } else {
        alert("Usuario y/o contraseña incorrecta")
