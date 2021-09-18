@@ -13,10 +13,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
-/* app.use(expressJwt({
+app.use(expressJwt({
     secret: process.env.jwt_pass,
     algorithms: ['HS256']
-}).unless({
+})/* .unless({
     path: ['/api/login', '/api/registrar']
 })); */
 
