@@ -19,7 +19,7 @@ async function Ingresar(e) {
     
     console.log(data);
 
-    const response = await fetch("/api/login", {
+    const response = await fetch("http://localhost:3000/api/login", {
         method: 'POST',
         headers: {
 
@@ -32,7 +32,7 @@ async function Ingresar(e) {
     console.log(response);
      if (response.ok) {
         localStorage.setItem("Token", JSON.stringify(res));
-       window.location.href = "index.html";
+       window.location.href = "body.html";
         
     } else {
        alert("Usuario y/o contraseña incorrecta")

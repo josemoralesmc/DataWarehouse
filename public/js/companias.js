@@ -1,5 +1,3 @@
-
-
 window.onload = function () {
     Compañias();
     getciudad2()
@@ -83,7 +81,7 @@ btnRegion.addEventListener('click', () => {
 async function Compañias() {
     const SelectNC = document.getElementById('SelectNC');
     const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-    const mostrarCompañias = await fetch("/api/compania", {
+    const mostrarCompañias = await fetch("http://localhost:3000/api/compania", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -103,7 +101,6 @@ async function Compañias() {
           <td>${element.telefono}</td>
           <td>${element.nombre_ciudad}</td>
           <td>
-
             <div class="btndelete" > <a
                 id="${element.id}" class="waves-effect waves-light btn modal-trigger btn btn-outline-dark btn-small id"
                 href="#modalA">Editar</a>
@@ -149,7 +146,7 @@ async function CrearCompania(e) {
         "telefono": telefonocompania,
         "ciudad_id": selectcompania
     }
-    const crearcompania = await fetch("/api/compania", {
+    const crearcompania = await fetch("http://localhost:3000/api/compania", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -185,7 +182,7 @@ function Act(id2) {
             "ciudad_id": selectcompania2
         }
 
-        const crearcompania = await fetch("/api/compania?id=" + `${id2.target.id}`, {
+        const crearcompania = await fetch("http://localhost:3000/api/compania?id=" + `${id2.target.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -210,7 +207,7 @@ function Act(id2) {
 async function getciudad() {
     const selectcompania = document.getElementById('selectcompania');
     const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-    const traerciudad = await fetch("/api/region/pais/ciudad", {
+    const traerciudad = await fetch("http://localhost:3000/api/region/pais/ciudad", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -235,7 +232,7 @@ console.log(getciudad());
 async function getciudad2() {
     const selectcompania2 = document.getElementById('selectcompania2');
     const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-    const traerciudad = await fetch("/api/region/pais/ciudad", {
+    const traerciudad = await fetch("http://localhost:3000/api/region/pais/ciudad", {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -268,7 +265,7 @@ async function EliminarCompañia(id) {
         deletecompañia2.addEventListener('click', async () => {
             console.log(id.target.id);
             const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-            const EliminarC = await fetch("/api/compania?id=" + `${id.target.id}`, {
+            const EliminarC = await fetch("http://localhost:3000/api/compania?id=" + `${id.target.id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -282,4 +279,3 @@ async function EliminarCompañia(id) {
     }
 
 }
-

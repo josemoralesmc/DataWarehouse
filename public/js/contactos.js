@@ -27,7 +27,7 @@ const tablacontactos = document.getElementById("tablacontactos")
 
 async function Contactos() {
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const MostarContactos = await fetch("/api/contactos", {
+  const MostarContactos = await fetch("http://localhost:3000/api/contactos", {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -41,7 +41,6 @@ async function Contactos() {
     const element = response[index];
     tablacontactos.innerHTML += ` <tbody id="tablacontactos">
         <tr>
-
           <th scope="row" class="check">
             <p style="margin: 0;">
               <label>
@@ -62,7 +61,6 @@ async function Contactos() {
             <a href="#modaldelete" class="modal-trigger Eliminar"><i class="material-icons" id="${element.id}"
                 style="cursor: pointer;">close</i></a>
           </td>
-
       </tbody>`
 
     }
@@ -110,7 +108,7 @@ async function eliminarContactos() {
   for (let index = 0; index < array_id.length; index++) {
     const element = array_id[index];
      const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-        const EliminarC = await fetch("/api/contactos?id=" + `${element}`, {
+        const EliminarC = await fetch("http://localhost:3000/api/contactos?id=" + `${element}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -137,7 +135,7 @@ const SelectNCE = document.getElementById('SelectNCE');
 
 async function compañias() {
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const Compañias = await fetch("/api/compania", {
+  const Compañias = await fetch("http://localhost:3000/api/compania", {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -166,7 +164,7 @@ const paisesE = document.getElementById('paisesE');
 
 async function Paises() {
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const ObtenerPaises = await fetch("/api/region/pais", {
+  const ObtenerPaises = await fetch("http://localhost:3000/api/region/pais", {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -200,7 +198,7 @@ async function SeleccionarPais() {
   seleccionarciudad.disabled = false;
   seleccionarciudadE.disabled = false;
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const ObtenerPaises = await fetch("/api//region/pais/ciudad_pais?id=" + `${paises.value}`, {
+  const ObtenerPaises = await fetch("http://localhost:3000/api//region/pais/ciudad_pais?id=" + `${paises.value}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -213,7 +211,7 @@ async function SeleccionarPais() {
 console.log(responses);
 //GET PARA EDITAR CONTACTO
 
-  const ObtenerPaisesE = await fetch("/api//region/pais/ciudad_pais?id=" + `${paisesE.value}`, {
+  const ObtenerPaisesE = await fetch("http://localhost:3000/api//region/pais/ciudad_pais?id=" + `${paisesE.value}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -246,7 +244,7 @@ async function EliminarContactoID(id) {
     EliminarContacto.addEventListener('click', async () => {
           console.log(id.target.id);
           const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-          const EliminarC = await fetch("/api/contactos?id=" + `${id.target.id}`, {
+          const EliminarC = await fetch("http://localhost:3000/api/contactos?id=" + `${id.target.id}`, {
               method: 'DELETE',
               headers: {
                   'Content-Type': 'application/json',
@@ -293,7 +291,7 @@ const CrearContactobt = document.getElementById('CrearContactobt');
           "pais_contacto": paises.value,
       }
 
-      const CrearContacto = await fetch("/api/contactos", {
+      const CrearContacto = await fetch("http://localhost:3000/api/contactos", {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -342,7 +340,7 @@ async function EditarContacto() {
         "canales_contacto": CanalContactoE,
         "cuenta_usuario": CuentaUsuarioContactoE
     }
-    const EditarContacto = await fetch("/api/contactos?id=" + `${id.target.id}`, {
+    const EditarContacto = await fetch("http://localhost:3000/api/contactos?id=" + `${id.target.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -381,7 +379,7 @@ async function Buscar() {
 
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
 
-  const Buscador = await fetch("/api/contactos/search?search=" + `%${SearchInput.value}%`,{ 
+  const Buscador = await fetch("http://localhost:3000/api/contactos/search?search=" + `%${SearchInput.value}%`,{ 
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
@@ -400,7 +398,6 @@ const response = await Buscador.json();
    
    tablacontactos.innerHTML += ` <tbody id="tablacontactos">
    <tr>
-
      <th scope="row" class="check">
        <p style="margin: 0;">
          <label>
@@ -421,7 +418,6 @@ const response = await Buscador.json();
        <a href="#modaldelete" class="modal-trigger Eliminar"><i class="material-icons" id="${element.id}"
            style="cursor: pointer;">close</i></a>
      </td>
-
  </tbody>`
  }
 
@@ -434,7 +430,4 @@ const response = await Buscador.json();
   });
   
 };
-
-
-
 
