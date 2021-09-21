@@ -27,7 +27,7 @@ const tablacontactos = document.getElementById("tablacontactos")
 
 async function Contactos() {
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const MostarContactos = await fetch("http://localhost:3000/api/contactos", {
+  const MostarContactos = await fetch("https://datawarehouse.cleverapps.io/api/contactos", {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ async function eliminarContactos() {
   for (let index = 0; index < array_id.length; index++) {
     const element = array_id[index];
      const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-        const EliminarC = await fetch("http://localhost:3000/api/contactos?id=" + `${element}`, {
+        const EliminarC = await fetch("https://datawarehouse.cleverapps.io/api/contactos?id=" + `${element}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ const SelectNCE = document.getElementById('SelectNCE');
 
 async function compañias() {
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const Compañias = await fetch("http://localhost:3000/api/compania", {
+  const Compañias = await fetch("https://datawarehouse.cleverapps.io/api/compania", {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -164,7 +164,7 @@ const paisesE = document.getElementById('paisesE');
 
 async function Paises() {
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const ObtenerPaises = await fetch("http://localhost:3000/api/region/pais", {
+  const ObtenerPaises = await fetch("https://datawarehouse.cleverapps.io/api/region/pais", {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -198,7 +198,7 @@ async function SeleccionarPais() {
   seleccionarciudad.disabled = false;
   seleccionarciudadE.disabled = false;
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-  const ObtenerPaises = await fetch("http://localhost:3000/api//region/pais/ciudad_pais?id=" + `${paises.value}`, {
+  const ObtenerPaises = await fetch("https://datawarehouse.cleverapps.io/api/region/pais/ciudad_pais?id=" + `${paises.value}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -211,7 +211,7 @@ async function SeleccionarPais() {
 console.log(responses);
 //GET PARA EDITAR CONTACTO
 
-  const ObtenerPaisesE = await fetch("http://localhost:3000/api//region/pais/ciudad_pais?id=" + `${paisesE.value}`, {
+  const ObtenerPaisesE = await fetch("https://datawarehouse.cleverapps.io/api/region/pais/ciudad_pais?id=" + `${paisesE.value}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -244,7 +244,7 @@ async function EliminarContactoID(id) {
     EliminarContacto.addEventListener('click', async () => {
           console.log(id.target.id);
           const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
-          const EliminarC = await fetch("http://localhost:3000/api/contactos?id=" + `${id.target.id}`, {
+          const EliminarC = await fetch("https://datawarehouse.cleverapps.io/api/contactos?id=" + `${id.target.id}`, {
               method: 'DELETE',
               headers: {
                   'Content-Type': 'application/json',
@@ -291,7 +291,7 @@ const CrearContactobt = document.getElementById('CrearContactobt');
           "pais_contacto": paises.value,
       }
 
-      const CrearContacto = await fetch("http://localhost:3000/api/contactos", {
+      const CrearContacto = await fetch("https://datawarehouse.cleverapps.io/api/contactos", {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -340,7 +340,7 @@ async function EditarContacto() {
         "canales_contacto": CanalContactoE,
         "cuenta_usuario": CuentaUsuarioContactoE
     }
-    const EditarContacto = await fetch("http://localhost:3000/api/contactos?id=" + `${id.target.id}`, {
+    const EditarContacto = await fetch("https://datawarehouse.cleverapps.io/api/contactos?id=" + `${id.target.id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -379,7 +379,7 @@ async function Buscar() {
 
   const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
 
-  const Buscador = await fetch("http://localhost:3000/api/contactos/search?search=" + `%${SearchInput.value}%`,{ 
+  const Buscador = await fetch("https://datawarehouse.cleverapps.io/api/contactos/search?search=" + `%${SearchInput.value}%`,{ 
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',

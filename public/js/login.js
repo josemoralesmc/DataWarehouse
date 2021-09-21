@@ -19,7 +19,7 @@ async function Ingresar(e) {
     
     console.log(data);
 
-    const response = await fetch("http://localhost:3000/api/login", {
+    const response = await fetch("https://datawarehouse.cleverapps.io/api/login", {
         method: 'POST',
         headers: {
 
