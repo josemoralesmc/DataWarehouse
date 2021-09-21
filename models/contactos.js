@@ -4,7 +4,7 @@ const Contactos = {};
 
 Contactos.crear = async (nombre_contacto, apellido_contacto, interes_contacto, email_contacto, direccion_contactos, canales_contacto, cargo_contacto, cuenta_usuario, ciudad_contacto, compania_contacto, pais_contacto ) => {
     try {
-        const result = await sequelize.query('INSERT INTO datawarehouse.contactos (nombre_contacto, apellido_contacto, interes_contacto, email_contacto, direccion_contactos, canales_contacto, cargo_contacto, cuenta_usuario, ciudad_contacto, compania_contacto, pais_contacto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', {
+        const result = await sequelize.query('INSERT INTO contactos (nombre_contacto, apellido_contacto, interes_contacto, email_contacto, direccion_contactos, canales_contacto, cargo_contacto, cuenta_usuario, ciudad_contacto, compania_contacto, pais_contacto) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', {
             replacements: [nombre_contacto, apellido_contacto, interes_contacto, email_contacto, direccion_contactos, canales_contacto, cargo_contacto, cuenta_usuario, ciudad_contacto, compania_contacto, pais_contacto ]
         });
         console.log(result);

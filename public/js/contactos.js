@@ -144,7 +144,6 @@ async function compañias() {
     }
   });
   const response = await Compañias.json();
-  console.log(response);
   SelectNC.innerHTML = "";
   SelectNCE.innerHTML = "";
   for (let index = 0; index < response.length; index++) {
@@ -173,7 +172,6 @@ async function Paises() {
     }
   })
   const responses = await ObtenerPaises.json();
-  console.log(responses);
   paises.innerHTML = ``;
   paisesE.innerHTML = ``;
   for (let index = 0; index < responses.length; index++) {
@@ -208,7 +206,6 @@ async function SeleccionarPais() {
   })
   const responses = await ObtenerPaises.json();
 
-console.log(responses);
 //GET PARA EDITAR CONTACTO
 
   const ObtenerPaisesE = await fetch("https://datawarehouse.cleverapps.io/api/region/pais/ciudad_pais?id=" + `${paisesE.value}`, {
@@ -242,7 +239,6 @@ console.log(responses);
 async function EliminarContactoID(id) {
   if (id) {
     EliminarContacto.addEventListener('click', async () => {
-          console.log(id.target.id);
           const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
           const EliminarC = await fetch("https://datawarehouse.cleverapps.io/api/contactos?id=" + `${id.target.id}`, {
               method: 'DELETE',
@@ -276,7 +272,6 @@ const CrearContactobt = document.getElementById('CrearContactobt');
       const CuentaUsuarioContacto = document.getElementById('CuentaUsuarioContacto').value;
       const ContactosC = document.getElementById('Contactos').value;
   
-      console.log(seleccionarciudad);
       const data = {
           "nombre_contacto": NombreContacto,
           "apellido_contacto": ApellidoContacto,
@@ -303,9 +298,7 @@ const CrearContactobt = document.getElementById('CrearContactobt');
       const response = await CrearContacto.json();
       Contactos();
       /* location.reload(); */
-
-  }
-
+    }
 // PUT A CONTACTOS
 
 const EditarContactobt = document.getElementById('EditarContactobt');
@@ -325,7 +318,6 @@ async function EditarContacto() {
     const ContactosCE = document.getElementById('ContactosCE').value;
     
 
-    console.log(id.target);
    
 
     const data = {
@@ -391,7 +383,6 @@ async function Buscar() {
 const response = await Buscador.json();
 
 
-  console.log(response);
   tablacontactos.innerHTML = "";
  for (let index = 0; index < response.length; index++) {
    const element = response[index];

@@ -5,7 +5,6 @@ const buttonIngresar = document.getElementById('buttonIngresar');
 console.log(buttonIngresar);
 buttonIngresar.addEventListener('click', Ingresar)
   
-console.log(contrasena);
     
 async function Ingresar(e) {
     e.preventDefault();
@@ -17,7 +16,6 @@ async function Ingresar(e) {
         "contrasena": contrasena
     }
     
-    console.log(data);
 
     const response = await fetch("https://datawarehouse.cleverapps.io/api/login", {
         method: 'POST',

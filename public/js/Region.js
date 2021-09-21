@@ -425,7 +425,6 @@ function IdParaAtualizarPais(id) {
 function IdParaAtualizarCiudad(id) {
     EditarCiudadbt.addEventListener('click', BtnactualizarCiudad)
     async function BtnactualizarCiudad() {
-        console.log(id.target.id);
 
         const bearer = 'Bearer ' + JSON.parse(localStorage.getItem('Token'));
         const NuevoNombreCiudad = document.getElementById('NuevoNombreCiudad').value;

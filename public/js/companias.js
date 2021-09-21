@@ -193,7 +193,6 @@ function Act(id2) {
         })
 
         const response = await crearcompania.json();
-        console.log(crearcompania);
         Compañias();
         location.reload();
         document.getElementById("miForm").reset();

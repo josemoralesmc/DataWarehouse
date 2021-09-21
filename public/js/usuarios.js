@@ -96,7 +96,6 @@ BotonUsuario.addEventListener('click', CrearUsuario)
     const inputRepeatPassword = document.getElementById('inputRepeatPassword').value;
     
 
-    console.log(Nombre, Apellido, inputEmail3, Perfil, inputPassword3, inputRepeatPassword);
     /* e.preventDefault(); */
 
     const data = {
@@ -118,7 +117,6 @@ BotonUsuario.addEventListener('click', CrearUsuario)
       body: JSON.stringify(data)
     })
     const res = await crearusuario.json()
-    console.log(res);
     
   }
     
